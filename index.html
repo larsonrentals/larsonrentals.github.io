@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LarsonRentalLLC - Premium musical instrument and event equipment rentals in Glendale, CA">
+    <title>LarsonRentalLLC - Musical Instruments & Event Equipment Rentals</title>
+    <link rel="icon" href="music-svgrepo-com.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(44, 62, 80, 0.98);
+        }
+
+        header.scrolled .logo,
+        header.scrolled nav ul li a {
+            color: white;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            box-shadow: none;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--secondary);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-accent:hover {
+            background-color: #2980b9;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
+            background-color: var(--secondary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Featured Products */
+        .featured-products {
+            background-color: var(--light);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-image {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .product-actions .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Rental Categories */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem 1rem;
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .category-tab:hover, .category-tab.active {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .category-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .category-content.active {
+            display: block;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+
+        .testimonial-slider {
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 0 ;
+        }
+
+        .testimonial-slide .swiper-slide {
+            width: 100%!important;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto;
+            border: 3px solid var(--accent);
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .testimonial-quote:before,
+        .testimonial-quote:after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-quote:before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-quote:after {
+            bottom: -30px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--secondary);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #1a252f;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            background-color: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Blog Section */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .blog-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .read-more {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #c0392b;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-info {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .contact-info h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-detail i {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-right: 1rem;
+            margin-top: 3px;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+        }
+
+        .footer-col p {
+            margin-bottom: 1rem;
+            color: #bdc3c7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 1rem;
+            }
+
+            nav ul li {
+                margin-left: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 1rem;
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+
+            nav.active {
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        #about {
+            text-align: center;
+     
+        }
+
+        #about ul li {
+            list-style-type: none;
+        }
+
+        .about-content {
+            padding: 1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-music"></i> LARSONRENTALLLC
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#rentals">Rentals</a></li>
+                    <li><a href="#sales">Sales</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a style="color: white; font-weight: bold; text-decoration: none;" href="https://www.instagram.com/larsonrentals/"><i class="fab fa-instagram"></i> Istagram</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <video autoplay muted loop>
+            <source src="mixkit-heavy-metal-band-playing-the-guitar-on-stage-47568-hd-ready.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Premium Event Equipment Rentals</h1>
+            <p>From musical instruments to lighting systems, we have everything you need to make your event unforgettable.</p>
+            <div class="btn-group">
+                <a href="#rentals" class="btn pulse">Browse Rentals</a>
+                <a href="#sales" class="btn btn-outline">Explore Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products" id="featured">
+        <div class="section-title">
+            <h2>Featured Equipment</h2>
+        </div>
+        <p class="section-subtitle">Our most popular rental and purchase items for events and performances</p>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-badge">Hot Rental</div>
+                <div class="product-image">
+                    <img src="M09710000000000-00-2000x2000.jpg" alt="DJ Equipment">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sound Systems</span>
+                    <h3 class="product-title">Professional DJ Setup</h3>
+                    <p class="product-description">Complete DJ package with mixer, turntables, and premium speakers.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn">Rent Now</a>
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-badge">Best Seller</div>
+                <div class="product-image">
+                    <img src="audience-1853662_1280.jpg" alt="Stage Lighting">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Lighting</span>
+                    <h3 class="product-title">Concert Stage Lights</h3>
+                    <p class="product-description">Professional moving head lights with full DMX control.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn">Rent Now</a>
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-badge">New Arrival</div>
+                <div class="product-image">
+                    <img src="5ab4f0bc-2d55-4513-8a1e-e4ea3a55c646.613b6c5354e995a284e994bace58e022.jpg" alt="Bubble Machine">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Special Effects</span>
+                    <h3 class="product-title">Smoke Bubble Machine</h3>
+                    <p class="product-description">High-output bubble machine with built-in smoke effects.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn">Rent Now</a>
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="JAS4676-wifi-HiRes.jpg" alt="Laser System">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Special Effects</span>
+                    <h3 class="product-title">Professional Laser System</h3>
+                    <p class="product-description">RGB laser system with safety features for indoor events.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn">Rent Now</a>
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rentals Section -->
+    <section id="rentals">
+        <div class="section-title">
+            <h2>Equipment Rentals</h2>
+        </div>
+        <p class="section-subtitle">Browse our extensive collection of rental equipment for your next event</p>
+        
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="sound">Sound Systems</button>
+            <button class="category-tab" data-category="lighting">Lighting</button>
+            <button class="category-tab" data-category="instruments">Instruments</button>
+            <button class="category-tab" data-category="effects">Special Effects</button>
+        </div>
+        
+        <div class="category-content active" id="sound">
+            <div class="product-grid">
+                <!-- Sound System 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="ANC-LIB-DPDUAL.jpg" alt="PA System">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Sound System</span>
+                        <h3 class="product-title">Full PA System</h3>
+                        <p class="product-description">Complete sound system for medium-sized venues with mixer and mics.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sound System 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="dj-6213312_1280.jpg" alt="DJ Setup">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Sound System</span>
+                        <h3 class="product-title">Premium DJ Package</h3>
+                        <p class="product-description">Professional DJ equipment with turntables and controller.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sound System 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="482387.jpg" alt="Wireless Mics">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Sound System</span>
+                        <h3 class="product-title">Wireless Microphone Set</h3>
+                        <p class="product-description">Set of 4 professional wireless microphones with receivers.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category-content" id="lighting">
+            <div class="product-grid">
+                <!-- Lighting 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Multi-LED-Lights_1024x1024.jpg" alt="Moving Head Lights">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Lighting</span>
+                        <h3 class="product-title">Moving Head Lights</h3>
+                        <p class="product-description">Professional moving head lights with full DMX control.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lighting 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="martin_new_exterior_wash_pro_xl_quad_1.jpg" alt="LED Wash Lights">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Lighting</span>
+                        <h3 class="product-title">LED Wash Lights</h3>
+                        <p class="product-description">RGBW wash lights for stage and venue illumination.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lighting 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="chv-hbubblehazex2q6-0.webp" alt="Fog Machine">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Lighting</span>
+                        <h3 class="product-title">Haze Fog Machine</h3>
+                        <p class="product-description">High-output fog machine with remote control.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category-content" id="instruments">
+            <div class="product-grid">
+                <!-- Instrument 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Alesis-Strata-Core-Ortho-HiRes1_893290-050b6782180e216fad8fae2c5ae66abd.jpg" alt="Drum Set">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Instruments</span>
+                        <h3 class="product-title">Complete Drum Set</h3>
+                        <p class="product-description">5-piece drum set with cymbals and hardware.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instrument 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="CLP-865GP.jpg" alt="Keyboard">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Instruments</span>
+                        <h3 class="product-title">Digital Piano</h3>
+                        <p class="product-description">88-key weighted keyboard with stand and pedal.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instrument 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="2c65h5spUn7zfq4WNZ4j3NDimrO52xe3fRsLjOPW0FV3L8CSVIVp2gFsR6NdSXNY.jpeg" alt="Guitar">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Instruments</span>
+                        <h3 class="product-title">Electric Guitar Package</h3>
+                        <p class="product-description">Guitar with amplifier, cable, and accessories.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category-content" id="effects">
+            <div class="product-grid">
+                <!-- Effect 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="5ab4f0bc-2d55-4513-8a1e-e4ea3a55c646.613b6c5354e995a284e994bace58e022.jpg" alt="Bubble Machine">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Special Effects</span>
+                        <h3 class="product-title">Bubble Machine</h3>
+                        <p class="product-description">High-output bubble machine for parties and events.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Effect 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="JAS4676-wifi-HiRes.jpg" alt="Laser System">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Special Effects</span>
+                        <h3 class="product-title">Laser Light System</h3>
+                        <p class="product-description">RGB laser system with safety features.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Effect 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="ContinuousFlowGerbLauncher.jpg" alt="Confetti Cannon">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Special Effects</span>
+                        <h3 class="product-title">Confetti Cannon</h3>
+                        <p class="product-description">CO2 powered confetti cannon for big moments.</p>
+                        <div class="product-actions">
+                            <a href="#form" class="btn">Rent Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales Section -->
+    <section class="sales" id="sales">
+        <div class="section-title">
+            <h2>Equipment For Sale</h2>
+        </div>
+        <p class="section-subtitle">Purchase high-quality equipment for your permanent collection</p>
+        
+        <div class="product-grid">
+            <!-- Sale Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="Anchor_Audio_LIB-DP4-AIR.jpg" alt="PA Speaker">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sound Systems</span>
+                    <h3 class="product-title">Powered PA Speaker</h3>
+                    <p class="product-description">1000W active PA speaker with Bluetooth connectivity.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sale Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="9c4fdf4d37TFqXLkAOkZsupqoLjpl95Kqeko7daD.webp" alt="LED Par Can">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Lighting</span>
+                    <h3 class="product-title">LED Par Can Lights</h3>
+                    <p class="product-description">Set of 4 RGBWA+UV par cans with DMX control.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sale Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="L69629000000000-00-2000x2000.jpg" alt="Bubble Machine">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Special Effects</span>
+                    <h3 class="product-title">Professional Bubble Machine</h3>
+                    <p class="product-description">Commercial-grade bubble machine with large tank.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sale Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="ATW-1422_01-90ae7a7b3ef4db3e018352d6a40d097b.jpg" alt="Microphone">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Sound Systems</span>
+                    <h3 class="product-title">Wireless Microphone System</h3>
+                    <p class="product-description">Dual handheld wireless microphone system.</p>
+                    <div class="product-actions">
+                        <a href="#form" class="btn btn-accent">Purchase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+        </div>
+        <p class="section-subtitle">Hear from musicians, event planners, and performers who've used our services</p>
+        
+        <div class="testimonial-slider swiper">
+            <div class="swiper-wrapper">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide swiper-slide">
+                    <img src="saad-manzoor-HAybnKAKzfc-unsplash.jpg" alt="Client" class="testimonial-avatar">
+                    <p class="testimonial-quote">The sound system we rented for our outdoor concert was absolutely perfect. The team at LarsonRentalLLC helped us choose exactly what we needed and even delivered and set it up for us.</p>
+                    <h4 class="testimonial-author">Michael Johnson</h4>
+                    <p class="testimonial-role">Event Organizer, Music Festival</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide swiper-slide">
+                    <img src="dmitriy-ilkevich-KkSu4Iecbgw-unsplash.jpg" alt="Client" class="testimonial-avatar">
+                    <p class="testimonial-quote">As a wedding DJ, I rely on LarsonRentalLLC for all my lighting needs. Their equipment is always in perfect condition and their staff is incredibly knowledgeable.</p>
+                    <h4 class="testimonial-author">Sarah Williams</h4>
+                    <p class="testimonial-role">Professional DJ</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide swiper-slide">
+                    <img src="kato-blackmore-pkrqtK9-nSQ-unsplash.jpg" alt="Client" class="testimonial-avatar">
+                    <p class="testimonial-quote">The bubble machine we rented for our school dance was a huge hit! Easy to use and created an amazing atmosphere. Will definitely rent from them again.</p>
+                    <h4 class="testimonial-author">David Thompson</h4>
+                    <p class="testimonial-role">High School Teacher</p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>About LarsonRentalLLC</h2>
+        </div>
+        
+        <div class="about-container">
+            <div class="about-content">
+                <h3>Our Story</h3>
+                <p>Founded in 2023, LarsonRentalLLC began as a small music store with a handful of instruments available for rent. Over the years, we've grown into Southern California's premier event equipment rental company, serving musicians, DJs, event planners, and performers of all kinds.</p>
+                
+                <h3>Our Mission</h3>
+                <p>We're committed to providing high-quality, well-maintained equipment at affordable rates. Whether you're a professional musician needing backline gear for a tour or a parent planning a memorable birthday party, we have the tools to make your event successful.</p>
+                
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li>Extensive inventory of top-brand equipment</li>
+                    <li>Knowledgeable staff with industry experience</li>
+                    <li>Flexible rental periods to fit your needs</li>
+                    <li>Delivery and setup services available</li>
+                    <li>Competitive pricing for both rentals and purchases</li>
+                </ul>
+            </div>
+            
+            <div class="about-image">
+                <img src="d0edc60e-861c-4c0a-8f1f-831215017bb4.91a54402cac7732d1c4188114eb61f76.jpg" alt="Our Store" class="img-fluid">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        
+        <div class="faq-container">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are your rental terms and conditions?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our standard rental period is 24 hours, with options for weekly rentals available. All rentals require a security deposit and valid ID. Equipment must be returned in the same condition it was rented. Full terms are provided at the time of rental.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer delivery and setup services?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer delivery and professional setup within the Greater Los Angeles area for an additional fee. Our team can handle everything from simple equipment drop-off to full event production setup.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What happens if equipment is damaged during my rental?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Customers are responsible for any damage to equipment during the rental period. We offer optional damage waiver coverage that can be purchased to reduce your liability. All equipment is inspected before and after each rental.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I extend my rental period?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Extensions are possible based on equipment availability. Please contact us at least 24 hours before your scheduled return time to request an extension. Additional rental fees will apply.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer discounts for long-term rentals?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer discounted rates for weekly and monthly rentals. Contact our team for custom quotes on extended rental periods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="section-title">
+            <h2>Latest From Our Blog</h2>
+        </div>
+        <p class="section-subtitle">Tips, guides, and industry insights for musicians and event planners</p>
+        
+        <div class="blog-posts">
+            <!-- Blog Post 1 -->
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="a2fb530f-98f2-4866-a298-1562ce19496d.jpg" alt="Sound Setup">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">June 15, 2023</span>
+                    <h3 class="blog-title">Choosing the Right Sound System for Your Event</h3>
+                    <p class="blog-excerpt">Learn how to select the perfect audio setup based on venue size, audience, and event type...</p>
+                    
+                </div>
+            </div>
+            
+            <!-- Blog Post 2 -->
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="audience-1853662_1280.jpg" alt="Lighting Setup">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">May 28, 2023</span>
+                    <h3 class="blog-title">Creating Amazing Lighting Effects on a Budget</h3>
+                    <p class="blog-excerpt">Discover how to transform your event with creative lighting techniques without breaking the bank...</p>
+                    
+                </div>
+            </div>
+            
+            <!-- Blog Post 3 -->
+            <div class="blog-card">
+                <div class="blog-image">
+                    <img src="2c65h5spUn7zfq4WNZ4j3NDimrO52xe3fRsLjOPW0FV3L8CSVIVp2gFsR6NdSXNY.jpeg" alt="Instrument Care">
+                </div>
+                <div class="blog-content">
+                    <span class="blog-date">April 10, 2023</span>
+                    <h3 class="blog-title">Essential Maintenance for Rented Musical Instruments</h3>
+                    <p class="blog-excerpt">Keep rented instruments in top condition with these simple care tips...</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="form" class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>1607 W Glenoaks Blvd Unit A, Glendale, CA</p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>(747) 717-0244</p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>Email</h4>
+                        <p>larsonrentals75@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p>Monday-Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <a style="color: white; font-weight: bold; text-decoration: none;" href="https://www.instagram.com/larsonrentals/"><i class="fab fa-instagram"></i> Istagram</a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>LARSONRENTALLLC</h3>
+                <p>Your premier source for musical instrument and event equipment rentals in Southern California.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/larsonrentals/"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#rentals">Rentals</a></li>
+                    <li><a href="#sales">Sales</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Rental Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Sound Systems</a></li>
+                    <li><a href="#">Lighting Equipment</a></li>
+                    <li><a href="#">Musical Instruments</a></li>
+                    <li><a href="#">Special Effects</a></li>
+                    <li><a href="#">DJ Equipment</a></li>
+                    <li><a href="#">Stage Equipment</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 LarsonRentalLLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "3YFYcaf6q_yiSLxIl",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('service_hzjd0gu', 'template_oc30gd8', this)
+                    .then(() => {
+                        alert('Thank you for your message! We will contact you soon.');
+                        document.getElementById('contact-form').reset();
+                    }, (error) => {
+                        alert('ERROR!');
+                    });
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+        
+        // Category tabs
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const categoryContents = document.querySelectorAll('.category-content');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                categoryContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const categoryId = tab.getAttribute('data-category');
+                document.getElementById(categoryId).classList.add('active');
+            });
+        });
+        
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(i => {
+                    if (i !== item) {
+                        i.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Initialize testimonial slider
+        const testimonialSlider = new Swiper('.testimonial-slider', {
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Lazy load images
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
