@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy & FAQ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .accordion {
+      margin-top: 20px;
+    }
+    .accordion-item {
+      border-top: 1px solid #ccc;
+    }
+    .accordion-header {
+      padding: 15px;
+      cursor: pointer;
+      background: #f1f1f1;
+      font-weight: bold;
+    }
+    .accordion-body {
+      padding: 15px;
+      display: none;
+      background: #fff;
+    }
+    .accordion-item.active .accordion-body {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<section>
+  <h2>Privacy Policy & Terms</h2>
+  <p>
+    We are committed to protecting your privacy. All personal information you provide is handled securely and in compliance with applicable data protection laws.
+  </p>
+  <ul>
+    <li>We collect only necessary data to improve your experience.</li>
+    <li>We do not share or sell your data to third parties.</li>
+    <li>All communication is encrypted using industry-standard protocols.</li>
+    <li>By using our products, you agree to our terms of use and privacy policy.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Frequently Asked Questions</h2>
+  <div class="accordion">
+    <div class="accordion-item">
+      <div class="accordion-header">What data do you collect?</div>
+      <div class="accordion-body">
+        We collect basic usage data, like page visits and user preferences, to improve our services.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Can I delete my data?</div>
+      <div class="accordion-body">
+        Yes, you can request deletion of your data at any time by contacting our support team.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Is my information secure?</div>
+      <div class="accordion-body">
+        Absolutely. We use encryption, secure servers, and best practices to protect your data.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Do you use cookies?</div>
+      <div class="accordion-body">
+        Yes, we use cookies to remember your preferences and provide a better user experience.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const headers = document.querySelectorAll('.accordion-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+</body>
+</html>
